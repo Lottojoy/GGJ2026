@@ -313129,7 +313129,7 @@ GameObject:
   - component: {fileID: 1094533271}
   - component: {fileID: 1094533270}
   - component: {fileID: 1094533269}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -314277,7 +314277,7 @@ GameObject:
   - component: {fileID: 2018917205}
   - component: {fileID: 2018917204}
   - component: {fileID: 2018917203}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -314452,7 +314452,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Mob_spawn1:
   - {fileID: 1671607888233793134, guid: a7b737eb63e6e474fafd5be7f91eecf3, type: 3}
-  - {fileID: 1671607888233793134, guid: a7b737eb63e6e474fafd5be7f91eecf3, type: 3}
+  - {fileID: 1671607888233793134, guid: b2dc5c51a5af29f4e8149d2daa94ed61, type: 3}
   initialRates: 460000001e000000
   currentRates: 
   rateChangeDuration: 10
