@@ -1,0 +1,19 @@
+/[Ll]ibrary/
+/[Tt]emp/
+/[Obj]ect/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Mm]emoryCaptures/
+/[ veryvery_large_files_here ]
+
+# Unity3D generated meta files
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
+# Unity3D Generated File
+sysinfo.txt
+
+# VS/vstuc generated
+[Vv]s[Gg]enerated/
