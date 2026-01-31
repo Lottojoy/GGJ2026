@@ -18,12 +18,21 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 30
+<<<<<<< HEAD
     width: 1706.6667
     height: 974
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
   controlID: 81489
+=======
+    width: 1920
+    height: 939
+  m_MinSize: {x: 400, y: 100}
+  m_MaxSize: {x: 32384, y: 16192}
+  vertical: 1
+  controlID: 11040
+>>>>>>> Lotto
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -40,6 +49,7 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Game
+<<<<<<< HEAD
     m_Image: {fileID: 4621777727084837110, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
@@ -48,6 +58,16 @@ MonoBehaviour:
     y: 661.3334
     width: 597.6667
     height: 364.3333
+=======
+    m_Image: {fileID: -6423792434712278376, guid: 0000000000000000d000000000000000, type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 1336
+    y: 73
+    width: 218
+    height: 427
+>>>>>>> Lotto
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -58,8 +78,15 @@ MonoBehaviour:
     m_LastAppliedPresetName: Default
     m_SaveData: []
     m_OverlaysVisible: 1
+<<<<<<< HEAD
   m_SerializedViewNames: []
   m_SerializedViewValues: []
+=======
+  m_SerializedViewNames:
+  - UnityEditor.DeviceSimulation.SimulatorWindow
+  m_SerializedViewValues:
+  - C:\Users\User\Documents\GitHub\GarenaGameJamGitRepo\Library\PlayModeViewStates\f29d2bfe062c42a46948fbdb7f76718b
+>>>>>>> Lotto
   m_PlayModeViewName: GameView
   m_ShowGizmos: 0
   m_TargetDisplay: 0
@@ -70,7 +97,11 @@ MonoBehaviour:
   m_RenderIMGUI: 1
   m_EnterPlayModeBehavior: 0
   m_UseMipMap: 0
+<<<<<<< HEAD
   m_VSyncEnabled: 1
+=======
+  m_VSyncEnabled: 0
+>>>>>>> Lotto
   m_Gizmos: 0
   m_Stats: 0
   m_SelectedSizes: 03000000000000000000000000000000000000000000000000000000000000000000000000000000
@@ -79,10 +110,17 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
+<<<<<<< HEAD
     m_HBaseRangeMin: -640
     m_HBaseRangeMax: 640
     m_VBaseRangeMin: -360
     m_VBaseRangeMax: 360
+=======
+    m_HBaseRangeMin: -960
+    m_HBaseRangeMax: 960
+    m_VBaseRangeMin: -540
+    m_VBaseRangeMax: 540
+>>>>>>> Lotto
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -100,16 +138,24 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
+<<<<<<< HEAD
       width: 597.6667
       height: 343.3333
     m_Scale: {x: 0.4669271, y: 0.4669271}
     m_Translation: {x: 298.83334, y: 171.66666}
+=======
+      width: 218
+      height: 406
+    m_Scale: {x: 0.8702752, y: 0.8702752}
+    m_Translation: {x: 109, y: 182.55121}
+>>>>>>> Lotto
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
+<<<<<<< HEAD
       x: -640
       y: -367.65195
       width: 1280
@@ -117,6 +163,15 @@ MonoBehaviour:
     m_MinimalGUI: 1
   m_defaultScale: 0.4669271
   m_LastWindowPixelSize: {x: 896.5, y: 546.5}
+=======
+      x: -125.247734
+      y: -209.76262
+      width: 250.49547
+      height: 466.5191
+    m_MinimalGUI: 1
+  m_defaultScale: 0.11354167
+  m_LastWindowPixelSize: {x: 218, y: 427}
+>>>>>>> Lotto
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -136,17 +191,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Children:
   - {fileID: 4}
+<<<<<<< HEAD
   - {fileID: 23}
+=======
+  - {fileID: 16}
+>>>>>>> Lotto
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1706.6667
     height: 974
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
   controlID: 81490
+=======
+    width: 1920
+    height: 939
+  m_MinSize: {x: 400, y: 100}
+  m_MaxSize: {x: 32384, y: 16192}
+  vertical: 0
+  controlID: 11041
+>>>>>>> Lotto
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -161,17 +229,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Children:
   - {fileID: 5}
+<<<<<<< HEAD
   - {fileID: 13}
+=======
+  - {fileID: 11}
+>>>>>>> Lotto
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1282
     height: 974
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
   controlID: 81491
+=======
+    width: 1556
+    height: 939
+  m_MinSize: {x: 300, y: 100}
+  m_MaxSize: {x: 24288, y: 16192}
+  vertical: 1
+  controlID: 11042
+>>>>>>> Lotto
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -187,16 +268,29 @@ MonoBehaviour:
   m_Children:
   - {fileID: 6}
   - {fileID: 8}
+<<<<<<< HEAD
+=======
+  - {fileID: 10}
+>>>>>>> Lotto
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1282
     height: 588.6667
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
   controlID: 81292
+=======
+    width: 1556
+    height: 448
+  m_MinSize: {x: 300, y: 50}
+  m_MaxSize: {x: 24288, y: 8096}
+  vertical: 0
+  controlID: 11043
+>>>>>>> Lotto
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -214,8 +308,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 348.66666
     height: 588.6667
+=======
+    width: 448
+    height: 448
+>>>>>>> Lotto
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 7}
@@ -239,14 +338,24 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Hierarchy
+<<<<<<< HEAD
     m_Image: {fileID: -3734745235275155857, guid: 0000000000000000d000000000000000, type: 0}
+=======
+    m_Image: {fileID: 7966133145522015247, guid: 0000000000000000d000000000000000, type: 0}
+>>>>>>> Lotto
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 72.66667
     width: 347.66666
     height: 567.6667
+=======
+    y: 73
+    width: 447
+    height: 427
+>>>>>>> Lotto
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -260,9 +369,15 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
       m_SelectedIDs: 0aa30000
       m_LastClickedID: 41738
       m_ExpandedIDs: 8a59fdfff25dfdff7488fdffa48dfdffc48ffdfff8abfdff44b8fdff6edbfdff78dcfdff781ffeffac54feffec54feffc056feff0057feffb4bffefff2c0feffe201fffffe2dffff4839ffff1842ffffb844ffffc445ffff965bffffe85bffff8261ffffe686ffff5088ffffc299ffff10a1ffff98acffff9ab7ffff56caffff40ccfffff6fafffff4fffffff88e0000fe8e0000088f00000c8f000094950000a6950000aa950000d2950000e69500006ea200007ca2000094a2000098a20000aea20000bea20000e8a20000
+=======
+      m_SelectedIDs: d8f50000
+      m_LastClickedID: 62936
+      m_ExpandedIDs: fcc1fcff20d5fcff76f3fcffd04bfdff7263fdffd877fdffba18feff5e1cfeffec1cfeffce1efeff5c1ffeffea1ffeff7c20feff8a36feff7638feff9ef10000d4f4000094f50000d8f50000
+>>>>>>> Lotto
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -301,6 +416,7 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 348.66666
     y: 0
     width: 933.3334
@@ -315,6 +431,19 @@ MonoBehaviour:
   - {fileID: 12}
   m_Selected: 0
   m_LastSelected: 1
+=======
+    x: 448
+    y: 0
+    width: 888
+    height: 448
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
+  m_ActualView: {fileID: 9}
+  m_Panes:
+  - {fileID: 9}
+  m_Selected: 0
+  m_LastSelected: 0
+>>>>>>> Lotto
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -331,6 +460,7 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Scene
+<<<<<<< HEAD
     m_Image: {fileID: 8634526014445323508, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
@@ -339,6 +469,16 @@ MonoBehaviour:
     y: 72.66667
     width: 931.3334
     height: 567.6667
+=======
+    m_Image: {fileID: 2593428753322112591, guid: 0000000000000000d000000000000000, type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 448
+    y: 73
+    width: 886
+    height: 427
+>>>>>>> Lotto
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -352,6 +492,7 @@ MonoBehaviour:
       containerId: overlay-toolbar__top
       floating: 0
       collapsed: 0
+<<<<<<< HEAD
       displayed: 0
       snapOffset: {x: 24, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
@@ -372,6 +513,15 @@ MonoBehaviour:
       id: Tool Settings
       index: 0
       layout: 4
+=======
+      displayed: 1
+      snapOffset: {x: 0, y: -26}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 2
+      id: Tool Settings
+      index: 0
+      layout: 1
+>>>>>>> Lotto
       size: {x: 0, y: 0}
       sizeOverriden: 0
     - dockPosition: 0
@@ -379,12 +529,21 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
+<<<<<<< HEAD
       snapOffset: {x: 24, y: 25.333332}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: unity-grid-and-snap-toolbar
       index: 1
       layout: 4
+=======
+      snapOffset: {x: -141, y: -224}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 3
+      id: unity-grid-and-snap-toolbar
+      index: 1
+      layout: 1
+>>>>>>> Lotto
       size: {x: 0, y: 0}
       sizeOverriden: 0
     - dockPosition: 1
@@ -392,11 +551,16 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
+<<<<<<< HEAD
       snapOffset: {x: 24, y: 25.333332}
+=======
+      snapOffset: {x: 0, y: 25}
+>>>>>>> Lotto
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: unity-scene-view-toolbar
       index: 0
+<<<<<<< HEAD
       layout: 4
       size: {x: 0, y: 0}
       sizeOverriden: 0
@@ -411,6 +575,9 @@ MonoBehaviour:
       id: unity-scene-view-camera-mode-toolbar
       index: 1
       layout: 4
+=======
+      layout: 1
+>>>>>>> Lotto
       size: {x: 0, y: 0}
       sizeOverriden: 0
     - dockPosition: 1
@@ -420,6 +587,7 @@ MonoBehaviour:
       displayed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
+<<<<<<< HEAD
       snapCorner: 0
       id: unity-search-toolbar
       index: 1
@@ -450,6 +618,12 @@ MonoBehaviour:
       id: Brush Masks
       index: 1
       layout: 4
+=======
+      snapCorner: 1
+      id: unity-search-toolbar
+      index: 1
+      layout: 1
+>>>>>>> Lotto
       size: {x: 0, y: 0}
       sizeOverriden: 0
     - dockPosition: 0
@@ -457,7 +631,11 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
+<<<<<<< HEAD
       snapOffset: {x: 24, y: 25.333332}
+=======
+      snapOffset: {x: 0, y: 25}
+>>>>>>> Lotto
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: unity-transform-toolbar
@@ -465,6 +643,7 @@ MonoBehaviour:
       layout: 2
       size: {x: 0, y: 0}
       sizeOverriden: 0
+<<<<<<< HEAD
     - dockPosition: 1
       containerId: overlay-container--left
       floating: 0
@@ -479,16 +658,28 @@ MonoBehaviour:
       size: {x: 0, y: 0}
       sizeOverriden: 0
     - dockPosition: 1
+=======
+    - dockPosition: 0
+>>>>>>> Lotto
       containerId: overlay-container--left
       floating: 0
       collapsed: 0
       displayed: 1
+<<<<<<< HEAD
       snapOffset: {x: 24, y: 25.333332}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Overlays/OverlayMenu
       index: 1
       layout: 1
+=======
+      snapOffset: {x: 0, y: 197}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: unity-component-tools
+      index: 1
+      layout: 2
+>>>>>>> Lotto
       size: {x: 0, y: 0}
       sizeOverriden: 0
     - dockPosition: 0
@@ -496,7 +687,11 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
+<<<<<<< HEAD
       snapOffset: {x: 24, y: 25.333332}
+=======
+      snapOffset: {x: 1, y: 25}
+>>>>>>> Lotto
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Orientation
@@ -525,8 +720,13 @@ MonoBehaviour:
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
+<<<<<<< HEAD
       id: Scene View/PBR Validation Settings
       index: 2
+=======
+      id: Scene View/Camera
+      index: 1
+>>>>>>> Lotto
       layout: 4
       size: {x: 0, y: 0}
       sizeOverriden: 0
@@ -552,6 +752,7 @@ MonoBehaviour:
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Cloth Collisions
+<<<<<<< HEAD
       index: 4
       layout: 4
       size: {x: 0, y: 0}
@@ -565,6 +766,8 @@ MonoBehaviour:
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: APV Overlay
+=======
+>>>>>>> Lotto
       index: 3
       layout: 4
       size: {x: 0, y: 0}
@@ -577,7 +780,24 @@ MonoBehaviour:
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
+<<<<<<< HEAD
       id: AINavigationOverlay
+=======
+      id: Scene View/Navmesh Display
+      index: 4
+      layout: 4
+      size: {x: 0, y: 0}
+      sizeOverriden: 0
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Agent Display
+>>>>>>> Lotto
       index: 5
       layout: 4
       size: {x: 0, y: 0}
@@ -590,6 +810,7 @@ MonoBehaviour:
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
+<<<<<<< HEAD
       id: SceneView/CamerasOverlay
       index: 5
       layout: 4
@@ -617,6 +838,9 @@ MonoBehaviour:
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Particles
+=======
+      id: Scene View/Obstacle Display
+>>>>>>> Lotto
       index: 6
       layout: 4
       size: {x: 0, y: 0}
@@ -630,7 +854,24 @@ MonoBehaviour:
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Occlusion Culling
+<<<<<<< HEAD
       index: 7
+=======
+      index: 5
+      layout: 4
+      size: {x: 0, y: 0}
+      sizeOverriden: 0
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Physics Debugger
+      index: 6
+>>>>>>> Lotto
       layout: 4
       size: {x: 0, y: 0}
       sizeOverriden: 0
@@ -643,6 +884,22 @@ MonoBehaviour:
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Scene Visibility
+<<<<<<< HEAD
+=======
+      index: 7
+      layout: 4
+      size: {x: 0, y: 0}
+      sizeOverriden: 0
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: -295, y: -197}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 3
+      id: Scene View/Particles
+>>>>>>> Lotto
       index: 8
       layout: 4
       size: {x: 0, y: 0}
@@ -655,6 +912,7 @@ MonoBehaviour:
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
+<<<<<<< HEAD
       id: Scene View/TrailRenderer
       index: 9
       layout: 4
@@ -721,6 +979,9 @@ MonoBehaviour:
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Path
+=======
+      id: Scene View/Tilemap
+>>>>>>> Lotto
       index: 11
       layout: 4
       size: {x: 0, y: 0}
@@ -733,6 +994,7 @@ MonoBehaviour:
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
+<<<<<<< HEAD
       id: Scene View/Sprite Swap
       index: 15
       layout: 4
@@ -748,6 +1010,23 @@ MonoBehaviour:
       snapCorner: 0
       id: unity-tool-contexts-toolbar
       index: 1
+=======
+      id: Scene View/Tilemap Palette Helper
+      index: 12
+      layout: 4
+      size: {x: 0, y: 0}
+      sizeOverriden: 0
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 48, y: 48}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Open Tile Palette
+      index: 0
+>>>>>>> Lotto
       layout: 4
       size: {x: 0, y: 0}
       sizeOverriden: 0
@@ -756,11 +1035,71 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
+<<<<<<< HEAD
       snapOffset: {x: 48, y: 10.666687}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: UnityEditor.SceneViewCameraOverlay
       index: 12
+=======
+      snapOffset: {x: 0, y: 48}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Tilemap Focus
+      index: 4
+      layout: 4
+      size: {x: 0, y: 0}
+      sizeOverriden: 0
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 48, y: 48}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Path
+      index: 10
+      layout: 4
+      size: {x: 0, y: 0}
+      sizeOverriden: 0
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 48, y: 48}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/TrailRenderer
+      index: 9
+      layout: 4
+      size: {x: 0, y: 0}
+      sizeOverriden: 0
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 1
+      snapOffset: {x: 0, y: 10}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: UnityEditor.SceneViewCameraOverlay
+      index: 11
+      layout: 4
+      size: {x: 0, y: 0}
+      sizeOverriden: 0
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 48, y: 48}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: APV Overlay
+      index: 11
+>>>>>>> Lotto
       layout: 4
       size: {x: 0, y: 0}
       sizeOverriden: 0
@@ -775,9 +1114,15 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
+<<<<<<< HEAD
     m_Target: {x: 1.4917399, y: -0.028843768, z: -0.014206457}
     speed: 2
     m_Value: {x: 1.4917399, y: -0.028843768, z: -0.014206457}
+=======
+    m_Target: {x: -10.187527, y: -4.4208026, z: 0.58858633}
+    speed: 2
+    m_Value: {x: -9.695706, y: -4.5096393, z: 0.59374917}
+>>>>>>> Lotto
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -793,7 +1138,11 @@ MonoBehaviour:
     showImageEffects: 1
     showParticleSystems: 1
     showVisualEffectGraphs: 1
+<<<<<<< HEAD
     m_FxEnabled: 1
+=======
+    m_FxEnabled: 0
+>>>>>>> Lotto
   m_Grid:
     xGrid:
       m_Fade:
@@ -802,7 +1151,11 @@ MonoBehaviour:
         m_Value: 0
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
       m_Pivot: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
       m_Size: {x: 1, y: 1}
+=======
+      m_Size: {x: 0, y: 0}
+>>>>>>> Lotto
     yGrid:
       m_Fade:
         m_Target: 0
@@ -815,7 +1168,11 @@ MonoBehaviour:
       m_Fade:
         m_Target: 0
         speed: 2
+<<<<<<< HEAD
         m_Value: 1
+=======
+        m_Value: 0
+>>>>>>> Lotto
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
       m_Pivot: {x: 0, y: 0, z: 0}
       m_Size: {x: 1, y: 1}
@@ -827,16 +1184,27 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
+<<<<<<< HEAD
     m_Target: 2.5431325
     speed: 2
     m_Value: 2.5431325
+=======
+    m_Target: 11.989237
+    speed: 2
+    m_Value: 11.472954
+>>>>>>> Lotto
   m_Ortho:
     m_Target: 1
     speed: 2
     m_Value: 1
   m_CameraSettings:
+<<<<<<< HEAD
     m_Speed: 1.6401803
     m_SpeedNormalized: 0.8200002
+=======
+    m_Speed: 2
+    m_SpeedNormalized: 1
+>>>>>>> Lotto
     m_SpeedMin: 0.001
     m_SpeedMax: 2
     m_EasingEnabled: 1
@@ -851,7 +1219,11 @@ MonoBehaviour:
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
+<<<<<<< HEAD
   m_SceneVisActive: 1
+=======
+  m_SceneVisActive: 0
+>>>>>>> Lotto
   m_LastLockedObject: {fileID: 0}
   m_ViewIsLockedToObject: 0
 --- !u!114 &10
@@ -863,6 +1235,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 13854, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: UnityEditor.dll::UnityEditor.ProjectSettingsWindow
@@ -1043,6 +1416,26 @@ MonoBehaviour:
   vertical: 0
   controlID: 81492
 --- !u!114 &14
+=======
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: GameView
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 1336
+    y: 0
+    width: 220
+    height: 448
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
+  m_ActualView: {fileID: 2}
+  m_Panes:
+  - {fileID: 2}
+  m_Selected: 0
+  m_LastSelected: 0
+--- !u!114 &11
+>>>>>>> Lotto
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1052,12 +1445,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+<<<<<<< HEAD
   m_Name: GameView
+=======
+  m_Name: ProjectBrowser
+>>>>>>> Lotto
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 0
     width: 598.6667
     height: 385.3333
@@ -1071,6 +1469,22 @@ MonoBehaviour:
   m_Selected: 2
   m_LastSelected: 0
 --- !u!114 &15
+=======
+    y: 448
+    width: 1556
+    height: 491
+  m_MinSize: {x: 231, y: 271}
+  m_MaxSize: {x: 10001, y: 10021}
+  m_ActualView: {fileID: 12}
+  m_Panes:
+  - {fileID: 12}
+  - {fileID: 13}
+  - {fileID: 14}
+  - {fileID: 15}
+  m_Selected: 0
+  m_LastSelected: 1
+--- !u!114 &12
+>>>>>>> Lotto
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1086,14 +1500,24 @@ MonoBehaviour:
   m_MaxSize: {x: 10000, y: 10000}
   m_TitleContent:
     m_Text: Project
+<<<<<<< HEAD
     m_Image: {fileID: -5179483145760003458, guid: 0000000000000000d000000000000000, type: 0}
+=======
+    m_Image: {fileID: -5467254957812901981, guid: 0000000000000000d000000000000000, type: 0}
+>>>>>>> Lotto
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 661.3334
     width: 279.66666
     height: 364.3333
+=======
+    y: 521
+    width: 1555
+    height: 470
+>>>>>>> Lotto
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1115,24 +1539,42 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
+<<<<<<< HEAD
     - Assets/Scripts/Controllers
+=======
+    - Assets/Monsters
+>>>>>>> Lotto
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
     m_FilterByTypeIntersection: 0
   m_ViewMode: 1
+<<<<<<< HEAD
   m_StartGridSize: 74
   m_LastFolders:
   - Assets/Scripts/Controllers
   m_LastFoldersGridSize: 74
   m_LastProjectPath: D:\Github\GGJ2026\GameJam2026
+=======
+  m_StartGridSize: 96
+  m_LastFolders:
+  - Assets/Monsters
+  m_LastFoldersGridSize: 96
+  m_LastProjectPath: C:\Users\User\Documents\GitHub\GGJ2026\GameJam2026
+>>>>>>> Lotto
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
     m_SelectedIDs: 32900000
     m_LastClickedID: 36914
     m_ExpandedIDs: 0000000072330000ba84000004890000cc920000b2d9000000ca9a3bffffff7f
+=======
+    m_SelectedIDs: 92f60000
+    m_LastClickedID: 63122
+    m_ExpandedIDs: 000000000a060000eaf20000faf2000092f6000000ca9a3b
+>>>>>>> Lotto
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1148,7 +1590,11 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
+<<<<<<< HEAD
       m_ClientGUIView: {fileID: 14}
+=======
+      m_ClientGUIView: {fileID: 11}
+>>>>>>> Lotto
     m_SearchString: 
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
@@ -1158,9 +1604,15 @@ MonoBehaviour:
       m_ResourceFile: 
   m_AssetTreeState:
     scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
     m_SelectedIDs: 
     m_LastClickedID: 0
     m_ExpandedIDs: 00000000723300000489000000ca9a3bffffff7f
+=======
+    m_SelectedIDs: 02ac0000
+    m_LastClickedID: 44034
+    m_ExpandedIDs: 000000000a060000eaf20000faf2000092f6000000ca9a3b
+>>>>>>> Lotto
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1185,10 +1637,17 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
+<<<<<<< HEAD
     m_SelectedInstanceIDs: 8a59fdff
     m_LastClickedInstanceID: -173686
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 00000000000000000000000000000000208900001289000016890000
+=======
+    m_SelectedInstanceIDs: d8f50000
+    m_LastClickedInstanceID: 62936
+    m_HadKeyboardFocusLastEvent: 1
+    m_ExpandedInstanceIDs: c62300007eb40000d01e0100d81e01003666010008940100a6d60100f4f301009ceb00001adc0200b06401007afb0200520003005800030058e4020054660100506601005cb401009c5f0100a05f010086f60600bec3010060af0500467a00003eba00008ac300004a7c00007eaf0000f8990000b0ec000076b7000072b70000349c00008cd301009cd301009ad301009ed30100fc19040022c2000024c20000244f27004e8a0000de3700008e980000d0132400be730000f86b000096690000b2690000f668000000000000226600002e660000b2a80000aaa80000fc680000b6670000b8670000aa890000ae89000010f30000
+>>>>>>> Lotto
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1204,7 +1663,11 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
+<<<<<<< HEAD
       m_ClientGUIView: {fileID: 8}
+=======
+      m_ClientGUIView: {fileID: 11}
+>>>>>>> Lotto
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -1213,6 +1676,7 @@ MonoBehaviour:
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
     m_ScrollPosition: {x: 0, y: 0}
+<<<<<<< HEAD
     m_GridSize: 74
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 158.42857
@@ -1477,6 +1941,12 @@ MonoBehaviour:
   m_Selected: 0
   m_LastSelected: 4
 --- !u!114 &18
+=======
+    m_GridSize: 96
+  m_SkipHiddenPackages: 0
+  m_DirectoriesAreaWidth: 481
+--- !u!114 &13
+>>>>>>> Lotto
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1492,6 +1962,7 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Console
+<<<<<<< HEAD
     m_Image: {fileID: -4950941429401207979, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
@@ -1500,6 +1971,16 @@ MonoBehaviour:
     y: 661.3334
     width: 681.3333
     height: 364.3333
+=======
+    m_Image: {fileID: -4327648978806127646, guid: 0000000000000000d000000000000000, type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 0
+    y: 521
+    width: 1555
+    height: 470
+>>>>>>> Lotto
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1510,7 +1991,11 @@ MonoBehaviour:
     m_LastAppliedPresetName: Default
     m_SaveData: []
     m_OverlaysVisible: 1
+<<<<<<< HEAD
 --- !u!114 &19
+=======
+--- !u!114 &14
+>>>>>>> Lotto
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1522,6 +2007,7 @@ MonoBehaviour:
   m_Script: {fileID: 12071, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   m_MinSize: {x: 50, y: 50}
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
@@ -1534,6 +2020,20 @@ MonoBehaviour:
     y: 683.3334
     width: 773.33325
     height: 335.00006
+=======
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Animation
+    m_Image: {fileID: -8166618308981325432, guid: 0000000000000000d000000000000000, type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 0
+    y: 529
+    width: 1212
+    height: 462
+>>>>>>> Lotto
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1546,8 +2046,13 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
+<<<<<<< HEAD
   m_LastSelectedObjectID: -172558
 --- !u!114 &20
+=======
+  m_LastSelectedObjectID: -165928
+--- !u!114 &15
+>>>>>>> Lotto
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1559,6 +2064,7 @@ MonoBehaviour:
   m_Script: {fileID: 12914, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   m_MinSize: {x: 50, y: 50}
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
@@ -1571,6 +2077,20 @@ MonoBehaviour:
     y: 685.3334
     width: 742
     height: 340.3333
+=======
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Animator
+    m_Image: {fileID: -1673928668082335149, guid: 0000000000000000d000000000000000, type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 0
+    y: 529
+    width: 1212
+    height: 462
+>>>>>>> Lotto
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1583,7 +2103,11 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_ViewTransforms:
     m_KeySerializationHelper:
+<<<<<<< HEAD
     - {fileID: 1072639682751066253, guid: c25627a8b7d0d3748ac09ee5b5ea6e60, type: 2}
+=======
+    - {fileID: 3922534143552896292, guid: 166a45dbb4ab96c47a5e6f789b8dcde0, type: 2}
+>>>>>>> Lotto
     m_ValueSerializationHelper:
     - e00: 1
       e01: 0
@@ -1602,9 +2126,15 @@ MonoBehaviour:
       e32: 0
       e33: 1
   m_PreviewAnimator: {fileID: 0}
+<<<<<<< HEAD
   m_AnimatorController: {fileID: 9100000, guid: c25627a8b7d0d3748ac09ee5b5ea6e60, type: 2}
   m_BreadCrumbs:
   - m_Target: {fileID: 1072639682751066253, guid: c25627a8b7d0d3748ac09ee5b5ea6e60, type: 2}
+=======
+  m_AnimatorController: {fileID: 9100000, guid: 166a45dbb4ab96c47a5e6f789b8dcde0, type: 2}
+  m_BreadCrumbs:
+  - m_Target: {fileID: 3922534143552896292, guid: 166a45dbb4ab96c47a5e6f789b8dcde0, type: 2}
+>>>>>>> Lotto
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}
@@ -1614,6 +2144,7 @@ MonoBehaviour:
   m_MiniTool: 0
   m_LockTracker:
     m_IsLocked: 0
+<<<<<<< HEAD
   m_CurrentEditor: 0
   m_LayerEditor:
     m_SelectedLayerIndex: 0
@@ -1835,6 +2366,12 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   mForceToReOpen: 0
 --- !u!114 &23
+=======
+  m_CurrentEditor: 1
+  m_LayerEditor:
+    m_SelectedLayerIndex: 0
+--- !u!114 &16
+>>>>>>> Lotto
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1849,6 +2386,7 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 1282
     y: 0
     width: 424.66675
@@ -1862,6 +2400,21 @@ MonoBehaviour:
   m_Selected: 0
   m_LastSelected: 1
 --- !u!114 &24
+=======
+    x: 1556
+    y: 0
+    width: 364
+    height: 939
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 17}
+  m_Panes:
+  - {fileID: 17}
+  - {fileID: 18}
+  m_Selected: 0
+  m_LastSelected: 1
+--- !u!114 &17
+>>>>>>> Lotto
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1877,6 +2430,7 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Inspector
+<<<<<<< HEAD
     m_Image: {fileID: -440750813802333266, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
@@ -1885,6 +2439,16 @@ MonoBehaviour:
     y: 72.66667
     width: 423.66675
     height: 953
+=======
+    m_Image: {fileID: -2667387946076563598, guid: 0000000000000000d000000000000000, type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 1556
+    y: 73
+    width: 363
+    height: 918
+>>>>>>> Lotto
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1898,7 +2462,11 @@ MonoBehaviour:
   m_ObjectsLockedBeforeSerialization: []
   m_InstanceIDsLockedBeforeSerialization: 
   m_PreviewResizer:
+<<<<<<< HEAD
     m_CachedPref: -151
+=======
+    m_CachedPref: -160
+>>>>>>> Lotto
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
@@ -1908,7 +2476,11 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_PreviewWindow: {fileID: 0}
+<<<<<<< HEAD
 --- !u!114 &25
+=======
+--- !u!114 &18
+>>>>>>> Lotto
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1928,10 +2500,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 1227.3334
     y: 72.66667
     width: 478.33325
     height: 953
+=======
+    x: 1720
+    y: 73
+    width: 199
+    height: 918
+>>>>>>> Lotto
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
