@@ -15,9 +15,15 @@ public abstract class MaskBase : MonoBehaviour
     protected float _currentCD;
     protected bool _isReady = true;
 
+    // ⭐ Madness System (ใช้กับทุก Mask)
+    protected MadnessSystem _madness;
+
     protected virtual void Start()
     {
         if (_maskCD != null) _maskCD.gameObject.SetActive(false);
+
+        // หา MadnessSystem ครั้งเดียว
+        _madness = FindAnyObjectByType<MadnessSystem>();
     }
 
     protected virtual void Update()
@@ -37,6 +43,9 @@ public abstract class MaskBase : MonoBehaviour
 
         if (IsHotkeyPressed() && _isReady && CanUseMask())
         {
+            // ⭐ ใช้ Mask ใด ๆ → Madness เพิ่ม
+            _madness?.OnUseMask(this.GetType().Name);
+
             UseMask();
         }
     }
@@ -66,4 +75,31 @@ public abstract class MaskBase : MonoBehaviour
 
     protected virtual bool CanUseMask() => true;
     protected abstract void UseMask();
+
+    // ================= MADNESS HELPERS =================
+
+    protected MadnessResult RollMadness()
+    {
+        return _madness != null
+            ? _madness.RollMadness()
+            : MadnessResult.Normal;
+    }
+
+    protected int ApplyMadnessToDamage(int baseDamage)
+    {
+        MadnessResult result = RollMadness();
+
+        switch (result)
+        {
+            case MadnessResult.Good:
+                return baseDamage * 2;
+
+            case MadnessResult.Bad:
+                PlayerStats.Instance.TakeDamage(5);
+                return Mathf.Max(1, baseDamage / 2);
+
+            default:
+                return baseDamage;
+        }
+    }
 }

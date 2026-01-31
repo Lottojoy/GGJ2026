@@ -15,7 +15,7 @@ public class CosmicAttackMask : AttackMask
             // ดาเมจ
             if (hit.TryGetComponent(out MobHp hp))
             {
-                hp.TakeDamage(_damage);
+                hp.TakeDamage(GetFinalDamage());
             }
 
             Rigidbody2D rb = hit.GetComponent<Rigidbody2D>();

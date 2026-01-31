@@ -23,7 +23,7 @@ public class FireAttackMask : AttackMask
             // ดาเมจปกติ
             if (hit.TryGetComponent(out MobHp mobHp))
             {
-                mobHp.TakeDamage(_damage);
+                mobHp.TakeDamage(GetFinalDamage());
             }
 
             // Burn

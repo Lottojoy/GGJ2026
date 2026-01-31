@@ -29,7 +29,7 @@ public class PandoraAttackMask : AttackMask
             if (hit.TryGetComponent(out MobHp mobHp))
             {
                 int finalDamage = isGood ? _damage * 2 : _damage / 2;
-                mobHp.TakeDamage(finalDamage);
+                mobHp.TakeDamage(GetFinalDamage());
             }
 
             if (isGood && hit.TryGetComponent(out BurnStatus burn))
