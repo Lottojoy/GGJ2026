@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class MobAttack : MonoBehaviour
@@ -9,6 +10,14 @@ public class MobAttack : MonoBehaviour
     private float attackCooldown = 2f; // ตีทุกๆ 2 วิ
 
     private float nextAttackTime = 0f;
+
+    [SerializeField] private Animator _attackAnimator1;
+    [SerializeField] private Animator _attackAnimator2;
+    [SerializeField] private GameObject _attackEffect1;
+    [SerializeField] private GameObject _attackEffect2;
+    [SerializeField] private float _attackTime = 0.3f;
+
+    private Coroutine _attackCoroutine;
 
     private void OnCollisionStay2D(Collision2D collision)
     {
@@ -27,7 +36,30 @@ public class MobAttack : MonoBehaviour
     {
         if (PlayerStats.Instance == null) return;
 
+        if (_attackEffect1 != null) _attackEffect1.SetActive(true);
+
+        if (_attackEffect2 != null) _attackEffect2.SetActive(true);
+
+        if (_attackCoroutine == null) StartCoroutine(AttackTime(_attackTime));
+
+        if (_attackAnimator1 != null)  _attackAnimator1.SetBool("Hit", true);
+
+        if (_attackAnimator2 != null) _attackAnimator2.SetBool("Hit", true);
+
+
         Debug.Log(gameObject.name + " attacked player for " + Damage + " damage");
         PlayerStats.Instance.TakeDamage(Damage);
+    }
+
+    private IEnumerator AttackTime(float time)
+    {
+        yield return new WaitForSeconds(time);
+        if (_attackEffect1 != null) _attackEffect1.SetActive(false);
+
+        if (_attackEffect2 != null) _attackEffect2.SetActive(false);
+
+
+        _attackCoroutine = null;
+
     }
 }

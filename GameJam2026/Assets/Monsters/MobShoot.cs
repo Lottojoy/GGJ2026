@@ -10,10 +10,10 @@ public class MobShoot : MonoBehaviour
 
     [Header("Shooting Settings")]
     public GameObject bulletPrefab;
-    public Transform firePoint; // ให้สร้าง Empty Object เป็นลูกของมอนสเตอร์แล้วลากมาใส่
+    public Transform firePoint;
     public int shootAmount = 3;
-    public float shootInterval = 0.4f; // ระยะห่างระหว่างนัด
-    public float shootCooldown = 2f;   // ระยะห่างระหว่างชุด
+    public float shootInterval = 0.4f;
+    public float shootCooldown = 2f;
 
     private Transform target;
     private bool isShooting = false;
@@ -21,52 +21,34 @@ public class MobShoot : MonoBehaviour
 
     void Start()
     {
-        // ค้นหา Player
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if (player != null)
-        {
-            target = player.transform;
-        }
-
-        // ป้องกันกรณีลืมลาก firePoint ให้ใช้ตัวมอนสเตอร์เองไปก่อน
-        if (firePoint == null)
-        {
-            firePoint = transform;
-        }
+        if (player != null) target = player.transform;
+        if (firePoint == null) firePoint = transform;
     }
 
     void Update()
     {
         if (target == null) return;
 
-        // คำนวณทิศทาง
+        // คำนวณทิศทางไปยังผู้เล่น
         direction = (target.position - transform.position).normalized;
 
-        // ตรวจสอบระยะห่าง (ใช้ Distance แทน Raycast สำหรับการตรวจจับเบื้องต้นจะเสถียรกว่า)
         float distanceToTarget = Vector2.Distance(transform.position, target.position);
 
         if (distanceToTarget <= range)
         {
-            // ตรวจสอบว่าไม่มีอะไรบัง (Raycast)
+            // ตรวจสอบ Line of Sight
             RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, range, whatToHit);
 
             if (hit.collider != null && hit.collider.CompareTag("Player"))
             {
-                // หมุนตัวมอนสเตอร์/ปืน ให้หันไปหา Player
-                RotateTowardsTarget();
-
+                // ลบ RotateTowardsTarget() ออกจากตรงนี้ เพื่อไม่ให้ตัวมอนหมุน
                 if (!isShooting)
                 {
                     StartCoroutine(ShootRoutine());
                 }
             }
         }
-    }
-
-    void RotateTowardsTarget()
-    {
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
-        transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 
     IEnumerator ShootRoutine()
@@ -79,7 +61,6 @@ public class MobShoot : MonoBehaviour
             yield return new WaitForSeconds(shootInterval);
         }
 
-        // รอ Cooldown หลังจากยิงครบชุดแล้ว
         yield return new WaitForSeconds(shootCooldown);
         isShooting = false;
     }
@@ -88,9 +69,13 @@ public class MobShoot : MonoBehaviour
     {
         if (bulletPrefab != null && firePoint != null)
         {
-            // สร้างกระสุน
-            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-            Debug.Log("Monster Shot!");
+            // 1. คำนวณมุมที่จะให้กระสุนพุ่งไป (อิงจาก direction)
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+            Quaternion bulletRotation = Quaternion.Euler(0, 0, angle);
+
+            // 2. สร้างกระสุนโดยใช้มุมที่คำนวณได้ แทนการใช้ rotation ของมอนสเตอร์
+            Instantiate(bulletPrefab, firePoint.position, bulletRotation);
+            Debug.Log("Monster Shot without rotating body!");
         }
     }
 

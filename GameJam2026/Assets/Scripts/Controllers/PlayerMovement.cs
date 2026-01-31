@@ -38,6 +38,8 @@ public class PlayerMovement : MonoBehaviour
         {
             LastMoveDirection = _moveInput.normalized;
         }
+
+        
     }
 
     private void FixedUpdate()
