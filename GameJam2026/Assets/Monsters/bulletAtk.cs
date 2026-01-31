@@ -8,6 +8,8 @@ public class bulletAtk : MonoBehaviour
     public float lifeTime = 3f; // เวลาก่อนกระสุนจะถูกทำลาย
     public int Damage = 10;
 
+    [SerializeField] private Animator _bulletAnimator;
+
     void Start()
     {
         // ทำลายกระสุนหลังจากเวลาผ่านไป lifeTime วินาที
@@ -24,21 +26,13 @@ public class bulletAtk : MonoBehaviour
     // ฟังก์ชันนี้จะทำงานเมื่อกระสุนชนกับ Collider อื่น
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // ถ้าชน Player
+        _bulletAnimator.SetBool("Hit", true);
+
         if (other.CompareTag("Player"))
         {
             Debug.Log("Hit Player!");
-            /*PlayerHealth playerHealth = other.gameObject.GetComponent<PlayerHealth>();
-            if (playerHealth != null)
-            {
-            playerHealth.TakeDamage(Damage);
-            }*/
-            Destroy(gameObject); // ทำลายกระสุนทันที
+            PlayerStats.Instance.TakeDamage(Damage);
         }
-        // ถ้าชนอย่างอื่นที่ไม่ใช่ Enemy หรือตัวปืนเอง
-        else if (!other.CompareTag("Mob"))
-        {
-            Destroy(gameObject); // ทำลายกระสุนเมื่อชนกำแพงหรือสิ่งกีดขวาง
-        }
+        
     }
 }
