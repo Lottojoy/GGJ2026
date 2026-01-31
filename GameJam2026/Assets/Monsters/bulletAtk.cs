@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class bulletAtk : MonoBehaviour
 {
-    public float speed = 8f;
+    public float speed = 6f;
     public float lifeTime = 3f; // เวลาก่อนกระสุนจะถูกทำลาย
     public int Damage = 10;
 
