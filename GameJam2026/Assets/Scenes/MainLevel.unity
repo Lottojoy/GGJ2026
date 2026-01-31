@@ -925,7 +925,7 @@ MonoBehaviour:
   _enemyLayer:
     serializedVersion: 2
     m_Bits: 128
-  _hitboxSize: {x: 2, y: 2}
+  _hitboxSize: {x: 3, y: 5}
   _offsetDistance: 2
   _anticipationTime: 0.2
   _recoveryTime: 0.1
