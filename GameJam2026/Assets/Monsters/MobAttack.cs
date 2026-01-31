@@ -20,11 +20,7 @@ public class MobAttack : MonoBehaviour
             return;
 
          Debug.Log(gameObject.name + " attacked player for " + Damage + " damage");   
-        /*PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
-        if (playerHealth != null)
-        {
-            playerHealth.TakeDamage(Damage);
-        }*/
+        PlayerStats.Instance.TakeDamage(Damage);
 
     }
 }

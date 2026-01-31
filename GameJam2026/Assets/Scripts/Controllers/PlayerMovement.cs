@@ -5,8 +5,7 @@
 /// </summary>
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Movement Settings")]
-    [SerializeField] private float _moveSpeed = 5f;
+    [SerializeField] private float _moveSpeed => PlayerStats.Instance.BaseSpeed;
 
     private Rigidbody2D _rb;
     private Vector2 _moveInput;

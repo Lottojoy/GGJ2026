@@ -4,11 +4,11 @@ using System.Collections;
 public abstract class AttackMask : MaskBase
 {
     [Header("Attack Settings")]
-    [SerializeField] protected int _damage = 25;
     [SerializeField] protected LayerMask _enemyLayer;
     [SerializeField] protected Vector2 _hitboxSize = new Vector2(1.2f, 1.2f);
     [SerializeField] protected float _offsetDistance = 1.2f;
 
+    protected int _damage => PlayerStats.Instance.BaseATK;
     [Header("Timing")]
     [SerializeField] protected float _anticipationTime = 0.15f;
     [SerializeField] protected float _recoveryTime = 0.1f;
