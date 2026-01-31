@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 617819328560149512}
   - component: {fileID: 287134025998452238}
   - component: {fileID: 8805403287115815209}
+  - component: {fileID: 5221742759314236338}
   m_Layer: 0
   m_Name: MushroomBullet
   m_TagString: Untagged
@@ -164,3 +165,25 @@ MonoBehaviour:
   speed: 20
   lifeTime: 3
   Damage: 10
+  _bulletAnimator: {fileID: 5221742759314236338}
+--- !u!95 &5221742759314236338
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478764016313641741}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 051574d5d4fb0cd4ebbb461d34569e65, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
