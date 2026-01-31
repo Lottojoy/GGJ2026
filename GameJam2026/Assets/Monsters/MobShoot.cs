@@ -9,7 +9,7 @@ public class MobShoot : MonoBehaviour
 
     // --- เพิ่มตัวแปรเหล่านี้เข้าไป ---
     public GameObject bulletPrefab; // Prefab ของกระสุน
-    public Transform firePoint;     // จุดที่จะให้กระสุนออกมา
+    private Transform firePoint;     // จุดที่จะให้กระสุนออกมา
 
     public int Shoot_amout;
     public int Shoot_cooldown;
@@ -25,6 +25,7 @@ public class MobShoot : MonoBehaviour
         if (Target == null)
         {
             Target = GameObject.FindGameObjectWithTag("Player").transform;
+            firePoint = GameObject.FindGameObjectWithTag("Player").transform;
         }
     }
 

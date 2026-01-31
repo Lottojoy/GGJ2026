@@ -80,9 +80,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5a246c77e9f00647bea30afcd4c8247, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 3
+  Damage: 20
   playerTag: Player
-  attackCooldown: 1
 --- !u!114 &6356468935026458180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,7 +190,6 @@ MonoBehaviour:
   Range: 10
   Target: {fileID: 0}
   bulletPrefab: {fileID: 2478764016313641741, guid: 7277f3e4024559748b6b53b487c6318f, type: 3}
-  firePoint: {fileID: 4137404743507701184}
   Shoot_amout: 1
   Shoot_cooldown: 4
   whatToHit:

@@ -80,7 +80,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 10
   playerTag: Player
-  attackCooldown: 1
+  attackCooldown: 2
 --- !u!114 &6356468935026458180
 MonoBehaviour:
   m_ObjectHideFlags: 0

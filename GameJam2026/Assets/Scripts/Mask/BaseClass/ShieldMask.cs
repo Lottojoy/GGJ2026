@@ -6,9 +6,6 @@ public abstract class ShieldMask : MaskBase
 {
     [Header("Shield Settings")]
     [SerializeField] protected float _duration = 2f;
-    protected bool _isInvincible;
-
-    public bool IsInvincible => _isInvincible;
 
     protected override void UseMask()
     {

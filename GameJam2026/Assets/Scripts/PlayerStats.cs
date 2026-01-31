@@ -16,13 +16,15 @@ public class PlayerStats : Singleton<PlayerStats>
     [SerializeField] private float _damageColorDuration = 2f;
     [SerializeField] private float _invulDuration = 0.5f;
 
-    private bool _alive = true;
+    [SerializeField] private bool _alive = true;
+    [SerializeField] private bool _isInvincible = false;
 
     public const int MAX_PLAYER_HP = 100;
     public int CurrentHp => _currentHp;
     public int BaseATK => _baseATK;
     public int BaseSpeed => _baseSpeed;
     public bool IsAlive => _alive;
+    public bool IsInvincible => _isInvincible;
 
     [SerializeField] private float _hpLerpSpeed = 2f;
     private float _displayHp;
@@ -32,7 +34,6 @@ public class PlayerStats : Singleton<PlayerStats>
     private Color _baseColor;
     private Color _currentTintColor;
 
-    private bool _isInvul;
     private Coroutine _damageRoutine;
     private Coroutine _invulRoutine;
 
@@ -58,7 +59,9 @@ public class PlayerStats : Singleton<PlayerStats>
     // ================= DAMAGE =================
     public void TakeDamage(int damage)
     {
-        if (!_alive || _isInvul) return;
+        
+        if (!_alive) return;
+        if (_isInvincible) return;
 
         _currentHp -= damage;
         _currentHp = Mathf.Max(_currentHp, 0);
@@ -120,7 +123,6 @@ public class PlayerStats : Singleton<PlayerStats>
     // ================= INVUL =================
     private IEnumerator InvulnerabilityPeriod()
     {
-        _isInvul = true;
         float timer = 0f;
 
         while (timer < _invulDuration)
@@ -132,14 +134,13 @@ public class PlayerStats : Singleton<PlayerStats>
 
             yield return null;
         }
-
-        _isInvul = false;
         ApplyColor(1f);
     }
 
     // ================= OTHER =================
     public void Heal(int healAmount)
     {
+
         _currentHp += healAmount;
         if (_currentHp > MAX_PLAYER_HP)
             _currentHp = MAX_PLAYER_HP;
@@ -147,4 +148,6 @@ public class PlayerStats : Singleton<PlayerStats>
 
     public void SetSpeed(int speed) => _baseSpeed = speed;
     public void SetAtk(int atk) => _baseATK = atk;
+
+    public void SetInvincible(bool value) => _isInvincible = value;
 }

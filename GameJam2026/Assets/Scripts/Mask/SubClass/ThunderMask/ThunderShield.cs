@@ -6,10 +6,10 @@ public class ThunderShield : ShieldMask
 {
     protected override IEnumerator ShieldEffectRoutine()
     {
-        _isInvincible = true;
+        PlayerStats.Instance.SetInvincible(true);
         Debug.Log("Shield Active");
         yield return new WaitForSeconds(_duration);
-        _isInvincible = false;
+        PlayerStats.Instance.SetInvincible(false);
         Debug.Log("Shield Expired");
     }
 }
