@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class bulletAtk : MonoBehaviour
 {
-    public float speed = 20f;
+    public float speed = 8f;
     public float lifeTime = 3f; // เวลาก่อนกระสุนจะถูกทำลาย
     public int Damage = 10;
 
@@ -29,10 +29,10 @@ public class bulletAtk : MonoBehaviour
     // ฟังก์ชันนี้จะทำงานเมื่อกระสุนชนกับ Collider อื่น
     private void OnTriggerEnter2D(Collider2D other)
     {
-        _bulletAnimator.SetBool("Hit", true);
 
         if (other.CompareTag("Player"))
         {
+            _bulletAnimator.SetBool("Hit", true);
             Debug.Log("Hit Player!");
             if (_coroutine == null) StartCoroutine(TimeToDestroy(_timeToDestory));
             PlayerStats.Instance.TakeDamage(Damage);

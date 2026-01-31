@@ -241,7 +241,8 @@ MonoBehaviour:
   playerTag: Player
   _attackAnimator1: {fileID: 2226695197230923347}
   _attackAnimator2: {fileID: 3303567403755326086}
-  _attackEffect: {fileID: 3839581931774985230}
+  _attackEffect1: {fileID: 3839581931774985230}
+  _attackEffect2: {fileID: 20685970902558827}
   _attackTime: 0.3
 --- !u!114 &6356468935026458180
 MonoBehaviour:

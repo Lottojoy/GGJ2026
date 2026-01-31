@@ -13,7 +13,8 @@ public class MobAttack : MonoBehaviour
 
     [SerializeField] private Animator _attackAnimator1;
     [SerializeField] private Animator _attackAnimator2;
-    [SerializeField] private GameObject _attackEffect;
+    [SerializeField] private GameObject _attackEffect1;
+    [SerializeField] private GameObject _attackEffect2;
     [SerializeField] private float _attackTime = 0.3f;
 
     private Coroutine _attackCoroutine;
@@ -35,7 +36,9 @@ public class MobAttack : MonoBehaviour
     {
         if (PlayerStats.Instance == null) return;
 
-        if (_attackEffect != null) _attackEffect.SetActive(true);
+        if (_attackEffect1 != null) _attackEffect1.SetActive(true);
+
+        if (_attackEffect2 != null) _attackEffect2.SetActive(true);
 
         if (_attackCoroutine == null) StartCoroutine(AttackTime(_attackTime));
 
@@ -51,7 +54,10 @@ public class MobAttack : MonoBehaviour
     private IEnumerator AttackTime(float time)
     {
         yield return new WaitForSeconds(time);
-        if (_attackEffect != null) _attackEffect.SetActive(false);
+        if (_attackEffect1 != null) _attackEffect1.SetActive(false);
+
+        if (_attackEffect2 != null) _attackEffect2.SetActive(false);
+
 
         _attackCoroutine = null;
 
