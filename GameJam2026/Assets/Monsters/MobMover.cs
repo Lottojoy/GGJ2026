@@ -4,41 +4,58 @@ using UnityEngine;
 
 public class MobMover : MonoBehaviour
 {
-   public float moveSpeed = 5f;
+    public float moveSpeed = 5f;
 
-    public float separationDistance = 1f; // ระยะห่างขั้นต่ำ
-    public float separationStrength = 2f; // ความแรงในการหลบกัน
+    [Header("Separation")]
+    public float separationDistance = 1f;
+    public float separationStrength = 2f;
+
+    [Header("Visual")]
     public SpriteRenderer spriteRenderer;
     public bool switchFilp = false;
-    private Transform player; // ไม่ต้อง assign ใน Inspector แล้ว
 
+    [Header("Boss Detection")]
+    public bool isBoss = false;        // ✔ Boss เท่านั้น
+    public float detectRadius = 6f;    // รัศมีมองเห็น Player
+
+    private Transform player;
     private Rigidbody2D rb;
+    private bool hasAggro = false;     // Boss เคยเห็น Player แล้วหรือยัง
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
 
-        // ค้นหา GameObject ที่มี Tag เป็น "Player"
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null)
-        {
             player = playerObj.transform;
-        }
-        else
-        {
-            Debug.LogWarning("Player object with tag 'Player' not found!");
-        }
     }
 
     void FixedUpdate()
     {
-        if (player == null)
-            return;
+        if (player == null) return;
 
+        // ---------------- Boss Detection ----------------
+        if (isBoss)
+        {
+            float distance = Vector2.Distance(transform.position, player.position);
+
+            if (distance <= detectRadius)
+            {
+                hasAggro = true; // เจอแล้ว ไล่ยาว
+            }
+
+            if (!hasAggro)
+            {
+                rb.velocity = Vector2.zero;
+                return; // ยังไม่เห็น Player → ไม่เดิน
+            }
+        }
+
+        // ---------------- Move Logic ----------------
         Vector2 directionToPlayer = (player.position - transform.position).normalized;
         Vector2 separation = Vector2.zero;
 
-        // หามอนสเตอร์อื่นในฉาก
         GameObject[] allMobs = GameObject.FindGameObjectsWithTag("Mob");
 
         foreach (GameObject mob in allMobs)
@@ -48,55 +65,45 @@ public class MobMover : MonoBehaviour
             float distance = Vector2.Distance(transform.position, mob.transform.position);
             if (distance < separationDistance)
             {
-                // เพิ่มเวกเตอร์ผลักจากตัวอื่น
                 Vector2 pushDir = (transform.position - mob.transform.position).normalized;
                 separation += pushDir * (separationDistance - distance);
             }
         }
 
-        // รวมเวกเตอร์การเดินไปยังผู้เล่นกับการหลบกัน
         Vector2 finalDir = (directionToPlayer + separationStrength * separation).normalized;
-
         rb.velocity = finalDir * moveSpeed;
+
         FacePlayer();
     }
+
     private void FacePlayer()
     {
+        if (player == null) return;
+
+        bool playerOnRight = player.position.x > transform.position.x;
+
         if (switchFilp)
-        {
-//_HACKATHON_API_ ตรวจสอบทิศทางโดยเทียบตำแหน่งแกน X
-        if (player.position.x > transform.position.x)
-        {
-            // ถ้า Player อยู่ทาง "ขวา" ของมอนสเตอร์
-            // ให้หันขวา (ภาพปกติ ไม่ต้อง Flip)
-            spriteRenderer.flipX = true;
-        }
-        else if (player.position.x < transform.position.x)
-        {
-            // ถ้า Player อยู่ทาง "ซ้าย" ของมอนสเตอร์
-            // ให้หันซ้าย (กลับด้านภาพตามแกน X)
-            spriteRenderer.flipX = false;
-        }
-        // กรณีที่ตำแหน่ง X เท่ากันพอดี Sprite จะไม่เปลี่ยนทิศทาง ซึ่งเป็นพฤติกรรมที่ถูกต้อง
-        }
+            spriteRenderer.flipX = playerOnRight;
         else
-        {
-            //_HACKATHON_API_ ตรวจสอบทิศทางโดยเทียบตำแหน่งแกน X
-        if (player.position.x > transform.position.x)
-        {
-            // ถ้า Player อยู่ทาง "ขวา" ของมอนสเตอร์
-            // ให้หันขวา (ภาพปกติ ไม่ต้อง Flip)
-            spriteRenderer.flipX = false;
-        }
-        else if (player.position.x < transform.position.x)
-        {
-            // ถ้า Player อยู่ทาง "ซ้าย" ของมอนสเตอร์
-            // ให้หันซ้าย (กลับด้านภาพตามแกน X)
-            spriteRenderer.flipX = true;
-        }
-        // กรณีที่ตำแหน่ง X เท่ากันพอดี Sprite จะไม่เปลี่ยนทิศทาง ซึ่งเป็นพฤติกรรมที่ถูกต้อง
-        }
-        
+            spriteRenderer.flipX = !playerOnRight;
     }
 
+    // 🟢 วาดวงรัศมีใน Scene (Debug)
+    private void OnDrawGizmosSelected()
+    {
+        if (!isBoss) return;
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, detectRadius);
+    }
+
+    public void SetMoveSpeed(float newSpeed)
+{
+    moveSpeed = newSpeed;
+}
+
+public float GetMoveSpeed()
+{
+    return moveSpeed;
+}
 }

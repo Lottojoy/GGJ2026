@@ -7,122 +7,105 @@ public class BossSpawn : MonoBehaviour
     [Header("Mini Boss Settings")]
     public GameObject[] miniBossPrefabs;     // Prefab MiniBoss
     public int miniBossCount = 3;             // จำนวน MiniBoss
-    public Transform[] spawnPositions;        // จุดเกิด MiniBoss
+    public Transform[] spawnPoints;           // จุดเกิด (ห้ามซ้ำ)
     public float spawnDelay = 1f;
 
     [Header("Big Boss Settings")]
     public GameObject bigBossPrefab;          // Prefab BigBoss
-    public Transform bigBossSpawnPoint;
+    public Transform bigBossawnPoints;
 
     [Header("Effects")]
     public GameObject spawnEffect;
 
+    // ---------------- Runtime ----------------
+    private List<Transform> availableSpawnPoints = new List<Transform>();
     private List<GameObject> activeMiniBosses = new List<GameObject>();
-    private bool allMiniBossesSpawned = false;
     private bool bigBossSpawned = false;
-
+    private bool miniBossSpawnFinished = false;
     void Start()
     {
-        StartCoroutine(SpawnAllMiniBosses());
+        // เตรียม SpawnPoint ที่ยังว่าง
+        availableSpawnPoints.AddRange(spawnPoints);
+
+        StartCoroutine(SpawnMiniBossRoutine());
     }
 
     void Update()
     {
-        if (allMiniBossesSpawned && !bigBossSpawned)
-        {
+        if (miniBossSpawnFinished && !bigBossSpawned)
             CheckMiniBossesStatus();
-        }
     }
 
-    // -------------------- Spawn MiniBoss --------------------
-    private IEnumerator SpawnAllMiniBosses()
+    // ---------------- MiniBoss ----------------
+    private IEnumerator SpawnMiniBossRoutine()
+{
+    yield return new WaitForSeconds(spawnDelay);
+
+    int spawnAmount = Mathf.Min(miniBossCount, availableSpawnPoints.Count);
+
+    for (int i = 0; i < spawnAmount; i++)
     {
-        yield return new WaitForSeconds(spawnDelay);
-
-        for (int i = 0; i < miniBossCount; i++)
-        {
-            SpawnMiniBoss();
-            yield return new WaitForSeconds(0.5f);
-        }
-
-        allMiniBossesSpawned = true;
+        SpawnMiniBoss();
+        yield return new WaitForSeconds(0.5f);
     }
+
+    // ✅ จุดสำคัญ
+    miniBossSpawnFinished = true;
+}
+
 
     private void SpawnMiniBoss()
     {
-       if (miniBossPrefabs.Length == 0) return;
+        if (miniBossPrefabs.Length == 0 || availableSpawnPoints.Count == 0)
+            return;
 
-    int bossIndex = Random.Range(0, miniBossPrefabs.Length);
-    GameObject prefab = miniBossPrefabs[bossIndex];
+        // สุ่ม Prefab
+        GameObject prefab = miniBossPrefabs[Random.Range(0, miniBossPrefabs.Length)];
 
-    Vector3 spawnPos = GetRandomSpawnPosition();
+        // สุ่มจุดที่ยังไม่ถูกใช้
+        int pointIndex = Random.Range(0, availableSpawnPoints.Count);
+        Transform spawnPoint = availableSpawnPoints[pointIndex];
+        availableSpawnPoints.RemoveAt(pointIndex);
 
-    if (spawnEffect != null)
-    {
-        Instantiate(spawnEffect, spawnPos, Quaternion.identity);
+        if (spawnEffect != null)
+            Instantiate(spawnEffect, spawnPoint.position, Quaternion.identity);
+
+        GameObject miniBoss = Instantiate(prefab, spawnPoint.position, Quaternion.identity);
+        miniBoss.name = prefab.name + " (miniboss)";
+
+        activeMiniBosses.Add(miniBoss);
     }
 
-    GameObject miniBoss = Instantiate(prefab, spawnPos, Quaternion.identity);
-
-    // ⭐ ตั้งชื่อ MiniBoss
-    miniBoss.name = prefab.name + " (miniboss)";
-
-    activeMiniBosses.Add(miniBoss);
-    }
-
-    // -------------------- Check MiniBoss --------------------
+    // ---------------- Check ----------------
     private void CheckMiniBossesStatus()
     {
         for (int i = activeMiniBosses.Count - 1; i >= 0; i--)
         {
             if (activeMiniBosses[i] == null)
-            {
                 activeMiniBosses.RemoveAt(i);
-            }
         }
 
-        if (activeMiniBosses.Count == 0)
+        if (activeMiniBosses.Count == 0 && !bigBossSpawned)
         {
             SpawnBigBoss();
             bigBossSpawned = true;
         }
     }
 
-    // -------------------- Spawn BigBoss --------------------
+    // ---------------- BigBoss ----------------
     private void SpawnBigBoss()
     {
-       if (bigBossPrefab == null) return;
+        if (bigBossPrefab == null || availableSpawnPoints.Count == 0)
+            return;
 
-    Vector3 spawnPos = bigBossSpawnPoint != null
-        ? bigBossSpawnPoint.position
-        : transform.position;
+        
 
-    if (spawnEffect != null)
-    {
-        Instantiate(spawnEffect, spawnPos, Quaternion.identity);
-    }
+        if (spawnEffect != null)
+            Instantiate(spawnEffect, bigBossawnPoints.position, Quaternion.identity);
 
-    GameObject bigBoss = Instantiate(bigBossPrefab, spawnPos, Quaternion.identity);
+        GameObject bigBoss = Instantiate(bigBossPrefab, bigBossawnPoints.position, Quaternion.identity);
+        bigBoss.name = bigBossPrefab.name + " (BOSS)";
 
-    // ⭐ ตั้งชื่อ BigBoss
-    bigBoss.name = bigBossPrefab.name + " (BOSS)";
-
-    Debug.Log("Big Boss Spawned!");
-    }
-
-    // -------------------- Utility --------------------
-    private Vector3 GetRandomSpawnPosition()
-    {
-        if (spawnPositions.Length > 0)
-        {
-            int index = Random.Range(0, spawnPositions.Length);
-            return spawnPositions[index].position;
-        }
-
-        return transform.position + new Vector3(
-            Random.Range(-5f, 5f),
-            Random.Range(-3f, 3f),
-            0f
-        );
+        Debug.Log("Big Boss Spawned!");
     }
 }
