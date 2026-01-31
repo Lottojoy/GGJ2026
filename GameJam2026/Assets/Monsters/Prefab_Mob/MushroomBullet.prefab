@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 287134025998452238}
   - component: {fileID: 8805403287115815209}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: MushroomBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 2478764016313641741}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.676503, y: 1.0128484, z: 0}
-  m_LocalScale: {x: 0.59341, y: 0.59341, z: 0.59341}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0.78736246, b: 0, a: 1}
+  m_Sprite: {fileID: -1603311874, guid: f910a2b2f4a3e7b4798e3053c5c9bc71, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
