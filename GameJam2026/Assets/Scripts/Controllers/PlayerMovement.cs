@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Assign")]
     [SerializeField] private Rigidbody2D _rigidbody2D;
     [SerializeField] private Collider2D _playerCollider;
+    [SerializeField] private Transform _playerTransform;
 
     [Header("Settings")]
     [Range(1f, 10f)]
@@ -24,6 +25,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (_rigidbody2D.velocity != Vector2.zero)
+        {
+            _horizontalInput = 0;
+            _verticalInput = 0;
+            return;
+        }
         _horizontalInput = Input.GetAxisRaw("Horizontal");
         _verticalInput = Input.GetAxisRaw("Vertical");
     }
@@ -40,22 +47,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void MoveLogic()
     {
-        if (_horizontalInput != 0)
-        {
-            _rigidbody2D.velocity = new Vector2(_horizontalInput * _moveSpeed, _rigidbody2D.velocity.y);
-        }
-        else
-        {
-            _rigidbody2D.velocity = new Vector2(0, _rigidbody2D.velocity.y);
-        }
-
-        if (_verticalInput != 0)
-        {
-            _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, _verticalInput * _moveSpeed);
-        }
-        else
-        {
-            _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0);
-        }
+        _playerTransform.transform.position = new Vector2(
+            _playerTransform.position.x + _horizontalInput * 0.25f,
+            _playerTransform.position.y + _verticalInput * 0.25f
+            );
     }
 }
