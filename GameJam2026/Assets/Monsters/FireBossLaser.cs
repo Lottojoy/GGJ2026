@@ -36,17 +36,19 @@ public class FireBossLaser : MonoBehaviour
     }
 
     private IEnumerator AttackRoutine()
-{
-    isAttacking = true;
+    {
+        isAttacking = true;
 
-    animator.SetTrigger("ChargeLaser");
-    yield return new WaitForSeconds(chargeTime);
+        // 🎭 เตรียมยิง
+        if (animator != null)
+            animator.SetTrigger("ChargeLaser");
 
-    // แค่เรียกยิง
-    laserController.FireLaser();
+        yield return new WaitForSeconds(chargeTime);
 
-    yield return new WaitForSeconds(cooldown);
-    isAttacking = false;
-}
+        // 🔥 ยิงเลเซอร์จริง
+        laserController.FireLaser();
 
+        yield return new WaitForSeconds(cooldown);
+        isAttacking = false;
+    }
 }
