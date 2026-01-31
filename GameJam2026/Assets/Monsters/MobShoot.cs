@@ -39,25 +39,25 @@ public class MobShoot : MonoBehaviour
     {
         if (target == null) return;
 
-        // คำนวณทิศทาง
         direction = (target.position - transform.position).normalized;
-
-        // ตรวจสอบระยะห่าง (ใช้ Distance แทน Raycast สำหรับการตรวจจับเบื้องต้นจะเสถียรกว่า)
         float distanceToTarget = Vector2.Distance(transform.position, target.position);
 
         if (distanceToTarget <= range)
         {
-            // ตรวจสอบว่าไม่มีอะไรบัง (Raycast)
+            // ยิงเส้นสีเขียวออกมาให้เห็นในหน้า Scene (ตอน Play เกม)
+            Debug.DrawRay(transform.position, direction * range, Color.green);
+
             RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, range, whatToHit);
 
-            if (hit.collider != null && hit.collider.CompareTag("Player"))
+            if (hit.collider != null)
             {
-                // หมุนตัวมอนสเตอร์/ปืน ให้หันไปหา Player
-                RotateTowardsTarget();
+                // ดูว่ามันชนโดนอะไรกันแน่
+                Debug.Log("Raycast hit: " + hit.collider.name);
 
-                if (!isShooting)
+                if (hit.collider.CompareTag("Player"))
                 {
-                    StartCoroutine(ShootRoutine());
+                    RotateTowardsTarget();
+                    if (!isShooting) StartCoroutine(ShootRoutine());
                 }
             }
         }
