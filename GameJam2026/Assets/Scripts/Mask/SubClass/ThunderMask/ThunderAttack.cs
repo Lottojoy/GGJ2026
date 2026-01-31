@@ -16,7 +16,7 @@ public class ThunderAttack : AttackMask
         {
             if (e.TryGetComponent(out MobHp enemy))
             {
-                enemy.TakeDamage(_damage);
+                enemy.TakeDamage(GetFinalDamage()); //เพิ่ม madness
                 Debug.Log($"Hit: {e.name}");
             }
         }

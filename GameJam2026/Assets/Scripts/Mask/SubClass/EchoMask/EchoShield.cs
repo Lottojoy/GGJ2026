@@ -11,12 +11,9 @@ public class EchoShieldMask : ShieldMask
     protected override IEnumerator ShieldEffectRoutine()
     {
         _isInvincible = true;
-
-        // เปิดโล่
         yield return new WaitForSeconds(_duration);
         _isInvincible = false;
 
-        // ===== Echo Pulse =====
         MadnessResult result = RollMadness();
         float dmgMultiplier = pulseDamageMultiplier;
 
@@ -25,6 +22,9 @@ public class EchoShieldMask : ShieldMask
         else if (result == MadnessResult.Bad)
             dmgMultiplier = 0.4f;
 
+        // ✅ ใช้ตัวแปรเก่า
+        int damage = PlayerStats.Instance.BaseATK;
+
         Collider2D[] hits = Physics2D.OverlapCircleAll(
             transform.position, pulseRadius, enemyLayer
         );
@@ -32,8 +32,7 @@ public class EchoShieldMask : ShieldMask
         foreach (var h in hits)
         {
             if (h.TryGetComponent(out MobHp hp))
-                hp.TakeDamage(Mathf.RoundToInt(GetFinalDamage() * dmgMultiplier));
+                hp.TakeDamage(Mathf.RoundToInt(damage * dmgMultiplier));
         }
     }
 }
-

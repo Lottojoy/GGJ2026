@@ -41,4 +41,11 @@ public abstract class AttackMask : MaskBase
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(GetAttackPoint(), _hitboxSize);
     }
+
+    protected int GetFinalDamage()
+    {
+        // _damage มาจาก PlayerStats
+        return ApplyMadnessToDamage(_damage);
+    }
+
 }
