@@ -1,18 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] protected int _currenHealth = 100;
+    [SerializeField] private int _health = 100;
 
     public void DealDamage(int damage)
     {
-        _currenHealth -= damage;
-        if (_currenHealth <= 0)
-        {
-            Destroy(this.gameObject);
-        }
+        _health -= damage;
+        Debug.Log($"{gameObject.name} เลือดเหลือ: {_health}");
 
+        if (_health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

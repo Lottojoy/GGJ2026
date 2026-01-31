@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// คลาสฐานสำหรับหน้ากากจัดการ UI Cooldown และการรับ Hotkey
+/// </summary>
 public abstract class MaskBase : MonoBehaviour
 {
     public enum MaskHotkey { Mouse0, Mouse1, Space, F }

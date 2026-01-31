@@ -6,21 +6,19 @@ public abstract class AttackMask : MaskBase
     [Header("Attack Settings")]
     [SerializeField] protected int _damage = 25;
     [SerializeField] protected LayerMask _enemyLayer;
-    [SerializeField] protected Vector2 _hitboxSize = new Vector2(0.8f, 0.8f);
-    [SerializeField] protected float _offsetDistance = 1f;
+    [SerializeField] protected Vector2 _hitboxSize = new Vector2(1.2f, 1.2f);
+    [SerializeField] protected float _offsetDistance = 1.2f;
 
-    [Header("Timing Settings")]
-    [SerializeField] protected float _anticipationTime = 0.2f; // เวลาก่อนฟัน (ง้าง)
-    [SerializeField] protected float _recoveryTime = 0.1f;     // เวลาหลังฟัน (พัก)
+    [Header("Timing")]
+    [SerializeField] protected float _anticipationTime = 0.15f;
+    [SerializeField] protected float _recoveryTime = 0.1f;
 
-    protected Vector2 _lookDir = Vector2.down;
+    protected PlayerMovement _movement;
 
-    protected override void Update()
+    protected override void Start()
     {
-        base.Update();
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
-        if (h != 0 || v != 0) _lookDir = new Vector2(h, v).normalized;
+        base.Start();
+        _movement = FindAnyObjectByType<PlayerMovement>();
     }
 
     protected override void UseMask()
@@ -29,10 +27,14 @@ public abstract class AttackMask : MaskBase
         StartCoroutine(ExecuteAttackRoutine());
     }
 
-    // เปลี่ยนจากฟังก์ชันธรรมดาเป็น Coroutine เพื่อคุมจังหวะ
     protected abstract IEnumerator ExecuteAttackRoutine();
 
-    protected Vector2 GetAttackPoint() => (Vector2)transform.position + (_lookDir * _offsetDistance);
+    // จุดสำคัญ: คำนวณตำแหน่งโจมตีจากตัว Player ไม่ใช่จาก UI
+    protected Vector2 GetAttackPoint()
+    {
+        if (_movement == null) return Vector2.zero;
+        return (Vector2)_movement.transform.position + (_movement.LastMoveDirection * _offsetDistance);
+    }
 
     protected virtual void OnDrawGizmosSelected()
     {

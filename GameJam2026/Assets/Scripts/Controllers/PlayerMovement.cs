@@ -1,55 +1,59 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/// <summary>
+/// ควบคุมการเคลื่อนที่แบบอิสระ (Free Movement) และระบบล็อคการควบคุม
+/// </summary>
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Assign")]
-    [SerializeField] private Rigidbody2D _rigidbody2D;
-    [SerializeField] private Collider2D _playerCollider;
-    [SerializeField] private Transform _playerTransform;
-
-    [Header("Settings")]
-    [Range(1f, 10f)]
+    [Header("Movement Settings")]
     [SerializeField] private float _moveSpeed = 5f;
 
-    [Header("PlayerStats")]
-    [SerializeField] private float _verticalInput;
-    [SerializeField] private float _horizontalInput;
-    private void OnValidate()
-    {
-        if (_rigidbody2D == null) _rigidbody2D = this.GetComponent<Rigidbody2D>();
+    private Rigidbody2D _rb;
+    private Vector2 _moveInput;
+    private bool _isActionLocked;
 
-        if (_playerCollider == null) _playerCollider = this.GetComponentInChildren<Collider2D>();
+    // เก็บค่าทิศทางล่าสุดที่ผู้เล่นกด
+    public Vector2 LastMoveDirection { get; private set; } = Vector2.down;
+    public Vector2 CurrentInput => _moveInput;
+
+    private void Awake()
+    {
+        _rb = GetComponent<Rigidbody2D>();
+        _rb.gravityScale = 0f;
+        // ล็อคไม่ให้ตัวละครหมุนเมื่อชนสิ่งกีดขวาง
+        _rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
     private void Update()
     {
-        if (_rigidbody2D.velocity != Vector2.zero)
+        if (_isActionLocked)
         {
-            _horizontalInput = 0;
-            _verticalInput = 0;
+            _moveInput = Vector2.zero;
             return;
         }
-        _horizontalInput = Input.GetAxisRaw("Horizontal");
-        _verticalInput = Input.GetAxisRaw("Vertical");
+
+        _moveInput.x = Input.GetAxisRaw("Horizontal");
+        _moveInput.y = Input.GetAxisRaw("Vertical");
+
+        if (_moveInput != Vector2.zero)
+        {
+            LastMoveDirection = _moveInput.normalized;
+        }
     }
 
     private void FixedUpdate()
     {
-        MoveLogic();
+        if (!_isActionLocked)
+        {
+            _rb.velocity = _moveInput.normalized * _moveSpeed;
+        }
     }
 
-
-    //============================
-    //functions
-    //============================
-
-    private void MoveLogic()
+    /// <summary>
+    /// ล็อคการควบคุมของผู้เล่น (ใช้ตอน Dash หรือโจมตี)
+    /// </summary>
+    public void LockMovement(bool isLocked)
     {
-        _playerTransform.transform.position = new Vector2(
-            _playerTransform.position.x + _horizontalInput * 0.25f,
-            _playerTransform.position.y + _verticalInput * 0.25f
-            );
+        _isActionLocked = isLocked;
     }
 }
