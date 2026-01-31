@@ -1,123 +1,139 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
-public class MobHp : MonoBehaviour
+public class MobHp : MonoBehaviour, IHitDamageEffect
 {
-   [Header("Health Settings")]
+    [Header("Health Settings")]
     public int maxHp = 100;
     public int currentHp;
 
-    [Header("Flash Effect")]
-    public Color flashColor = Color.red;
-    public float flashDuration = 0.1f;
+    [Header("Damage Color Effect")]
+    public Color damageColor = Color.red;
+    public float damageColorDuration = 2f; // เวลาไป-กลับรวม
 
-   
+    [Header("Invulnerability")]
+    public float invulnerabilityDuration = 0.5f;
 
     [Header("Item Drops")]
-    public GameObject ItemPrefab; // (ใหม่) Prefab ของ Health Potion
-    [Range(0, 100)]
-    public float ItemDropChance = 5f; // (ใหม่) โอกาสดรอป Potion (เป็นเปอร์เซ็นต์)
+    public GameObject ItemPrefab;
+    [Range(0, 100)] public float ItemDropChance = 5f;
 
-    // --- ตัวแปรภายใน ---
-    private SpriteRenderer spriteRenderer;
-    private Color originalColor;
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
-    private bool isInvulnerable = false; // ตัวแปรตรวจสอบสถานะไร้เทียมทาน
-    private float invulnerabilityDuration = 0.5f; // ระยะเวลาไร้เทียมทาน
-    private Coroutine invulnerabilityCoroutine;
+    private Color baseColor;          // สีเดิม
+    private Color currentTintColor;   // สีจากระบบ Damage
+
+    private bool isInvulnerable;
+    private bool isDead;
+
+    private Coroutine damageColorRoutine;
+    private Coroutine invulRoutine;
 
     void Awake()
     {
         currentHp = maxHp;
-        spriteRenderer = GetComponent<SpriteRenderer>();
-    
 
-        if (spriteRenderer != null)
+        if (spriteRenderer == null)
         {
-            originalColor = spriteRenderer.color;
+            Debug.LogError("NO SpriteRenderer found on " + gameObject.name);
+            return;
         }
+
+        baseColor = spriteRenderer.color;
+        currentTintColor = baseColor;
     }
 
-    // --- ฟังก์ชัน TakeDamage (เหมือนเดิมจากโค้ดของคุณ) ---
+    // ================= DAMAGE =================
     public void TakeDamage(int damage)
     {
-        if (isInvulnerable)
-        {
-            Debug.Log(gameObject.name + " is invulnerable, damage ignored!");
-            return; // ไม่รับความเสียหาย
-        }
+        if (isDead || isInvulnerable) return;
 
         currentHp -= damage;
-        Debug.Log(gameObject.name + " took " + damage + " damage, current HP: " + currentHp);
+        currentHp = Mathf.Max(currentHp, 0);
+
+        // เริ่มเอฟเฟกต์สีโดนตี
+        if (damageColorRoutine != null)
+            StopCoroutine(damageColorRoutine);
+        damageColorRoutine = StartCoroutine(DamageColorEffect());
+
+        // เริ่มช่วงอมตะ
+        if (invulRoutine != null)
+            StopCoroutine(invulRoutine);
+        invulRoutine = StartCoroutine(InvulnerabilityPeriod());
 
         if (currentHp <= 0)
-        {
-            currentHp = 0;
             Die();
-        }
-        else
-        {
-            StartCoroutine(FlashEffect());
-            // เริ่มสถานะไร้เทียมทาน
-            StartCoroutine(InvulnerabilityPeriod());
-        }
     }
 
-    // --- ระบบไร้เทียมทาน ---
+    // ================= COLOR APPLY =================
+    private void ApplyColor(float alpha = 1f)
+    {
+        Color c = currentTintColor;
+        c.a = alpha;
+        spriteRenderer.color = c;
+    }
+
+    // ================= DAMAGE COLOR =================
+    private IEnumerator DamageColorEffect()
+    {
+        float half = damageColorDuration / 2f;
+        float t = 0f;
+
+        // ค่อย ๆ แดง
+        while (t < half)
+        {
+            t += Time.deltaTime;
+            currentTintColor = Color.Lerp(baseColor, damageColor, t / half);
+            ApplyColor();
+            yield return null;
+        }
+
+        t = 0f;
+
+        // ค่อย ๆ กลับ
+        while (t < half)
+        {
+            t += Time.deltaTime;
+            currentTintColor = Color.Lerp(damageColor, baseColor, t / half);
+            ApplyColor();
+            yield return null;
+        }
+
+        currentTintColor = baseColor;
+        ApplyColor();
+    }
+
+    // ================= INVUL =================
     private IEnumerator InvulnerabilityPeriod()
     {
         isInvulnerable = true;
-        
-        // ตัวเลือก 1: เปลี่ยนสีชั่วคราวเพื่อแสดงสถานะ
-        if (spriteRenderer != null)
+        float timer = 0f;
+
+        while (timer < invulnerabilityDuration)
         {
-            spriteRenderer.color = new Color(1f, 1f, 1f, 0.5f); // ทำให้โปร่งแสง
+            timer += Time.deltaTime;
+
+            float alpha = Mathf.PingPong(timer * 8f, 1f) > 0.5f ? 0.4f : 1f;
+            ApplyColor(alpha); // เปลี่ยนแค่โปร่งใส ไม่ยุ่งสี
+
+            yield return null;
         }
 
-        // รอระยะเวลาไร้เทียมทาน
-        yield return new WaitForSeconds(invulnerabilityDuration);
-
-        // คืนค่าปกติ
         isInvulnerable = false;
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.color = originalColor;
-        }
-        
-        Debug.Log(gameObject.name + " is vulnerable again.");
-    }
-    
-
-
-    // --- ฟังก์ชัน FlashEffect (เหมือนเดิมจากโค้ดของคุณ) ---
-    private IEnumerator FlashEffect()
-    {
-        spriteRenderer.color = flashColor;
-        yield return new WaitForSeconds(flashDuration);
-        spriteRenderer.color = originalColor;
+        ApplyColor(1f);
     }
 
-    // --- ฟังก์ชัน Die (เหมือนเดิมจากโค้ดของคุณทุกประการ) ---
+    // ================= DIE =================
     private void Die()
     {
-        Debug.Log(gameObject.name + " has died.");
-        
-        
+        isDead = true;
 
-        float randomValue = Random.Range(0f, 100f); 
-
-        // ถ้าเลขที่สุ่มได้น้อยกว่าหรือเท่ากับโอกาสดรอปที่ตั้งไว้
-        if (randomValue <= ItemDropChance)
+        float randomValue = Random.Range(0f, 100f);
+        if (randomValue <= ItemDropChance && ItemPrefab != null)
         {
-            if (ItemPrefab != null)
-            {
-                // สร้าง Potion ขึ้นมา
-                Debug.Log("Health Potion Dropped!");
-                Instantiate(ItemPrefab, transform.position, Quaternion.identity);
-            }
+            Instantiate(ItemPrefab, transform.position, Quaternion.identity);
         }
-        
+
         Destroy(gameObject);
     }
 }

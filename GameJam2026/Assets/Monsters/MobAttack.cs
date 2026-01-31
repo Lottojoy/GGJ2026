@@ -1,30 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MobAttack : MonoBehaviour
 {
     public int Damage = 10;
-     public string playerTag = "Player"; 
+    public string playerTag = "Player";
 
-     [Header("Attack Cooldown")]
-    public float attackCooldown = 1f; // เวลารอระหว่างการโจมตี
-    private float lastAttackTime = 0f;
-    private bool canAttack = true;
-   private void OnCollisionEnter2D(Collision2D collision)
+    [Header("Attack Cooldown")]
+    private float attackCooldown = 2f; // ตีทุกๆ 2 วิ
+
+    private float nextAttackTime = 0f;
+
+    private void OnCollisionStay2D(Collision2D collision)
     {
-         if (!collision.gameObject.CompareTag(playerTag))
+        if (!collision.gameObject.CompareTag(playerTag))
             return;
 
-            if (!canAttack)
-            return;
-
-         Debug.Log(gameObject.name + " attacked player for " + Damage + " damage");   
-        /*PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
-        if (playerHealth != null)
+        // เช็คเวลาคูลดาวน์
+        if (Time.time >= nextAttackTime)
         {
-            playerHealth.TakeDamage(Damage);
-        }*/
+            AttackPlayer();
+            nextAttackTime = Time.time + attackCooldown;
+        }
+    }
 
+    private void AttackPlayer()
+    {
+        if (PlayerStats.Instance == null) return;
+
+        Debug.Log(gameObject.name + " attacked player for " + Damage + " damage");
+        PlayerStats.Instance.TakeDamage(Damage);
     }
 }
