@@ -144,7 +144,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -166,6 +166,7 @@ MonoBehaviour:
   lifeTime: 3
   Damage: 10
   _bulletAnimator: {fileID: 5221742759314236338}
+  _timeToDestory: 0.05
 --- !u!95 &5221742759314236338
 Animator:
   serializedVersion: 5

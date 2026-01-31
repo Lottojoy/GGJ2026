@@ -133,6 +133,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 20
   playerTag: Player
+  _attackAnimator1: {fileID: 0}
+  _attackAnimator2: {fileID: 0}
+  _attackEffect: {fileID: 0}
+  _attackTime: 0.3
 --- !u!114 &6356468935026458180
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,6 +9,9 @@ public class bulletAtk : MonoBehaviour
     public int Damage = 10;
 
     [SerializeField] private Animator _bulletAnimator;
+    [SerializeField] private float _timeToDestory = 0.2f;
+
+    private Coroutine _coroutine;
 
     void Start()
     {
@@ -31,8 +34,15 @@ public class bulletAtk : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("Hit Player!");
+            if (_coroutine == null) StartCoroutine(TimeToDestroy(_timeToDestory));
             PlayerStats.Instance.TakeDamage(Damage);
         }
         
+    }
+
+    private IEnumerator TimeToDestroy(float time)
+    {
+        yield return new WaitForSeconds(time);
+        Destroy(this.gameObject);
     }
 }
