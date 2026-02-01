@@ -43,9 +43,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: mob
+  - name: Map
+    uniqueID: 3417526289
+    locked: 0
+  - name: Mob
     uniqueID: 2778580313
     locked: 0
-  - name: New Layer 2
-    uniqueID: 3417526289
+  - name: Tree
+    uniqueID: 4274470281
+    locked: 0
+  - name: Player
+    uniqueID: 937771651
     locked: 0
