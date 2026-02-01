@@ -75,7 +75,6 @@ public class MobShoot : MonoBehaviour
 
             // 2. สร้างกระสุนโดยใช้มุมที่คำนวณได้ แทนการใช้ rotation ของมอนสเตอร์
             Instantiate(bulletPrefab, firePoint.position, bulletRotation);
-            Debug.Log("Monster Shot without rotating body!");
         }
     }
 

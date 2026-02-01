@@ -5,7 +5,8 @@
 /// </summary>
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float _moveSpeed => PlayerStats.Instance.BaseSpeed;
+    private float _moveSpeed => PlayerStats.Instance.BaseSpeed;
+    [SerializeField] private Animator _playerAnimator;
 
     private Rigidbody2D _rb;
     private Vector2 _moveInput;
@@ -14,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     // เก็บค่าทิศทางล่าสุดที่ผู้เล่นกด
     public Vector2 LastMoveDirection { get; private set; } = Vector2.down;
     public Vector2 CurrentInput => _moveInput;
+
+    private string _moveDiraction;
 
     private void Awake()
     {
@@ -39,7 +42,16 @@ public class PlayerMovement : MonoBehaviour
             LastMoveDirection = _moveInput.normalized;
         }
 
-        
+        _playerAnimator.SetBool("MoveRight", _moveInput.x > 0 ? true : false);
+
+        _playerAnimator.SetBool("MoveLeft", _moveInput.x < 0 ? true : false);
+
+        _playerAnimator.SetBool("MoveUp", _moveInput.y > 0 ? true : false);
+
+        _playerAnimator.SetBool("MoveDown", _moveInput.y < 0 ? true : false);
+
+
+
     }
 
     private void FixedUpdate()
