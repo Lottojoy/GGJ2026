@@ -39,13 +39,23 @@ public float detectRadius = 6f;
 private Transform player;
 
     void Update()
-    {
-         if (isUsingSkill) return;
-        if (!PlayerInRange()) return;
+{
+    UpdateMoveAnimation();
 
-        UseRandomSkill();
-    }   
+    if (isUsingSkill) return;
+    if (!PlayerInRange()) return;
 
+    UseRandomSkill();
+}
+
+
+    private void UpdateMoveAnimation()
+{
+    if (animator == null || mover == null) return;
+
+    bool moving = mover.moveSpeed > 0.01f && !isUsingSkill;
+    animator.SetBool("isMoving", moving);
+}
 
     void Start()
 {
@@ -78,22 +88,30 @@ private Transform player;
     }
 
     private IEnumerator SkillRoutine()
-    {
-        isUsingSkill = true;
-        mover.moveSpeed = 0f;
+{
+    isUsingSkill = true;
 
-        BossSkill skill = (BossSkill)Random.Range(0, 2);
+    animator?.SetBool("isUsingSkill", true);
+    animator?.SetBool("isMoving", false);
 
-        if (skill == BossSkill.LaserSpin)
-            yield return StartCoroutine(LaserSpinRoutine());
-        else
-            yield return StartCoroutine(FireRingRoutine());
+    mover.moveSpeed = 0f;
 
-        mover.moveSpeed = originalSpeed;
+    BossSkill skill = (BossSkill)Random.Range(0, 2);
 
-        yield return new WaitForSeconds(cooldown);
-        isUsingSkill = false;
-    }
+    if (skill == BossSkill.LaserSpin)
+        yield return StartCoroutine(LaserSpinRoutine());
+    else
+        yield return StartCoroutine(FireRingRoutine());
+
+    mover.moveSpeed = originalSpeed;
+
+    animator?.SetBool("isUsingSkill", false);
+
+    animator?.SetBool("isMoving", true);
+    yield return new WaitForSeconds(cooldown);
+    isUsingSkill = false;
+}
+
 
     // ================= LASER SPIN =================
     private IEnumerator LaserSpinRoutine()
